@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* Gentle scale animation for all buttons */
+  a[class*="rounded-full"],
+  button[class*="rounded-full"] {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  a[class*="rounded-full"]:hover,
+  button[class*="rounded-full"]:hover {
+    transform: scale(1.05);
+  }
+
+  /* Dog head tilt animation */
+  @keyframes dogTilt {
+    0% {
+      transform: rotate(0deg);
+    }
+    12.5% {
+      transform: rotate(6deg);
+    }
+    15% {
+      transform: rotate(-15deg);
+    }
+    17.5% {
+      transform: rotate(-12deg);
+    }
+    20% {
+      transform: rotate(-15deg);
+    }
+    22.5% {
+      transform: rotate(-12.5deg);
+    }
+    25% {
+      transform: rotate(-14deg);
+    }
+    27.5% {
+      transform: rotate(-13deg);
+    }
+    30% {
+      transform: rotate(-14deg);
+    }
+    31.7% {
+      transform: rotate(-13.5deg);
+    }
+    /* Slow return to vertical with settling bobble */
+    35% {
+      transform: rotate(3deg);
+    }
+    37.5% {
+      transform: rotate(-2deg);
+    }
+    40% {
+      transform: rotate(1deg);
+    }
+    42.5% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .dog-tilt-1 {
+    animation: dogTilt 12s ease-in-out infinite;
+  }
+
+  .dog-tilt-2 {
+    animation: dogTilt 12s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+
+  /* Milestone completion animation */
+  @keyframes milestoneComplete {
+    0% {
+      transform: scale(0.5) rotate(-45deg);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.2) rotate(10deg);
+      opacity: 1;
+    }
+    80% {
+      transform: scale(0.9) rotate(-5deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  .milestone-complete {
+    animation: milestoneComplete 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 160 100% 9%;
+    --card: 198 30% 94%;
+    --card-foreground: 160 100% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 100% 9%;
+    --primary: 160 100% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 198 30% 94%;
+    --secondary-foreground: 160 100% 9%;
+    --muted: 198 30% 94%;
+    --muted-foreground: 160 30% 35%;
+    --accent: 145 72% 49%;
+    --accent-foreground: 160 100% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 198 20% 85%;
+    --input: 198 20% 85%;
+    --ring: 145 72% 49%;
+    --chart-1: 145 72% 49%;
+    --chart-2: 160 100% 9%;
+    --chart-3: 198 30% 70%;
+    --chart-4: 145 50% 35%;
+    --chart-5: 160 50% 20%;
+    --radius: 2rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 160 100% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 198 30% 94%;
+    --sidebar-accent-foreground: 160 100% 9%;
+    --sidebar-border: 198 20% 85%;
+    --sidebar-ring: 145 72% 49%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
