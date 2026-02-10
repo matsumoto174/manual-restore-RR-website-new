@@ -126,7 +126,7 @@ function CaseStudyCard() {
 
 export function ResultsSection() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background pt-16 md:pt-24 pb-8 md:pb-12">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary text-center mb-16">
           Our results speak for themselves
@@ -143,8 +143,8 @@ export function ResultsSection() {
 
         <div className="mt-3 flex justify-center">
           <div className="inline-block bg-accent rounded-[2rem] px-6 py-4 max-w-3xl">
-            <p className="text-sm leading-relaxed text-accent-foreground">
-              + dozens of clients across various industries such as SaaS, design services, ad agencies, logistics consultants, financial services, construction and more.
+            <p className="text-sm leading-relaxed text-white">
+              + a wide range of clients across various industries such as SaaS, design services, ad agencies, logistics consultants, financial services, construction and more.
             </p>
           </div>
         </div>
