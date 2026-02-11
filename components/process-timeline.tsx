@@ -127,7 +127,7 @@ function TimelineCard({
               alt="Profile" 
               className="w-24 h-24 rounded-full object-cover shadow-lg shrink-0"
             />
-            <p className="font-caveat text-2xl font-semibold text-primary leading-tight" style={{ filter: 'url(#chalk-effect)', transform: 'rotate(-5deg)' }}>
+            <p className="font-caveat text-2xl font-semibold text-primary leading-tight" style={{ filter: 'url(#chalk-effect)', transform: 'rotate(-3deg)' }}>
               Founder-led, end-to-end. You work directly with me.
             </p>
           </div>
