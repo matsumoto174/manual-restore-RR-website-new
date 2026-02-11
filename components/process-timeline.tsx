@@ -74,8 +74,24 @@ function TimelineCard({
 
   return (
     <div
-      className={`relative flex items-start gap-6 md:gap-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"} md:items-center`}
+      className={`relative flex flex-col items-start gap-6 md:gap-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"} md:items-center`}
     >
+      {/* Mobile Image + Text for step 01 */}
+      {step.number === "01" && (
+        <div className="md:hidden w-full mb-4">
+          <div className="flex items-center gap-4">
+            <img 
+              src="/images/clr-cropped.jpg" 
+              alt="Profile" 
+              className="w-20 h-20 rounded-full object-cover shadow-lg shrink-0"
+            />
+            <p className="font-caveat text-xl font-semibold text-primary leading-tight" style={{ filter: 'url(#chalk-effect)', transform: 'rotate(-3deg)' }}>
+              Founder-led, end-to-end. You work directly with me.
+            </p>
+          </div>
+        </div>
+      )}
+      
       {/* Card */}
       <div className={`flex-1 ${isLeft ? "md:pr-12" : "md:pl-12"}`}>
         <button
