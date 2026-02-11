@@ -94,7 +94,7 @@ function TimelineCard({
 
       {/* Mobile Day Label for other steps */}
       {step.dayLabel && (
-        <div className="md:hidden w-full mb-3">
+        <div className="md:hidden w-full text-center mt-8 mb-2">
           <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-semibold text-sm">
             {step.dayLabel}
           </span>
