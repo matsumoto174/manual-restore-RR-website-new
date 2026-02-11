@@ -158,8 +158,8 @@ export function RoiCalculator() {
                 </div>
                 <div className="rounded-2xl bg-primary-foreground/10 p-6">
                   <p className="text-sm text-primary-foreground/60 mb-2">Revenue</p>
-                  <div className="flex flex-col md:flex-row md:items-baseline md:gap-1">
-                    <p className="font-heading text-3xl font-bold text-accent">
+                  <div className="flex flex-col gap-1 md:gap-0">
+                    <p className="font-heading text-2xl md:text-3xl font-bold text-accent break-words">
                       ${results.minRevenue.toLocaleString()}{results.minRevenue !== results.maxRevenue && `-$${results.maxRevenue.toLocaleString()}`}
                     </p>
                     {results.dealRange.monthly && (
