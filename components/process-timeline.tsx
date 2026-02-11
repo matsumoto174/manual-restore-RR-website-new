@@ -121,11 +121,16 @@ function TimelineCard({
       )}
       {step.number === "01" && !step.dayLabel && (
         <div className={`hidden md:block flex-1 ${isLeft ? "md:pl-12" : "md:pr-12 text-right"}`}>
-          <img 
-            src="/images/clr-cropped.jpg" 
-            alt="Profile" 
-            className="inline-block w-24 h-24 rounded-full object-cover shadow-lg"
-          />
+          <div className="inline-block text-right space-y-3">
+            <img 
+              src="/images/clr-cropped.jpg" 
+              alt="Profile" 
+              className="w-24 h-24 rounded-full object-cover shadow-lg"
+            />
+            <p className="text-sm font-medium text-primary leading-tight max-w-[180px] text-balance">
+              Founder-led, end-to-end. You work directly with me.
+            </p>
+          </div>
         </div>
       )}
       {!step.dayLabel && step.number !== "01" && <div className="hidden md:block flex-1" />}
