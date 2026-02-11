@@ -106,7 +106,7 @@ function TimelineCard({
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="w-full rounded-[2rem] bg-secondary p-6 text-left transition-all hover:shadow-md"
+          className="w-full rounded-[2rem] bg-secondary p-4 md:p-6 text-left transition-all hover:shadow-md"
         >
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">

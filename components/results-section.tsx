@@ -1,3 +1,5 @@
+"use client"
+
 import { TrendingUp, Users, BarChart3, Target } from "lucide-react"
 import Image from "next/image"
 
@@ -39,7 +41,7 @@ const results = [
 function ResultCard({ result }: { result: (typeof results)[0] }) {
   const Icon = result.icon
   return (
-    <div className="rounded-[2rem] bg-primary p-8 flex flex-col gap-5">
+    <div className="rounded-[2rem] bg-primary p-4 md:p-8 flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center">
           <Icon className="w-6 h-6 text-accent" />
@@ -49,7 +51,14 @@ function ResultCard({ result }: { result: (typeof results)[0] }) {
         </span>
       </div>
       {result.image ? (
-        <div className="w-full h-88 rounded-2xl overflow-hidden bg-white">
+        <div 
+          className="w-full h-88 rounded-2xl overflow-hidden bg-white cursor-pointer md:cursor-default"
+          onClick={() => {
+            if (window.innerWidth < 768) {
+              window.open(result.image, '_blank')
+            }
+          }}
+        >
           <Image
             src={result.image}
             alt={result.title}
@@ -75,8 +84,8 @@ function ResultCard({ result }: { result: (typeof results)[0] }) {
 
 function CaseStudyCard() {
   return (
-    <div className="rounded-[2rem] bg-primary p-8 flex flex-col gap-6">
-      <div className="flex items-center justify-between">
+    <div className="rounded-[2rem] bg-primary p-4 md:p-8 flex flex-col gap-6">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <h3 className="font-heading text-2xl font-semibold text-primary-foreground">
           Marketing agency
         </h3>
@@ -86,7 +95,14 @@ function CaseStudyCard() {
       </div>
       
       <div className="grid grid-cols-3 gap-1.5">
-        <div className="rounded-2xl overflow-hidden bg-white h-[200px]">
+        <div 
+          className="rounded-2xl overflow-hidden bg-white h-[200px] cursor-pointer md:cursor-default"
+          onClick={() => {
+            if (window.innerWidth < 768) {
+              window.open("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20dashboard-QP5fjOvSc91LRNqwIufnAEbwbWVutx.png", '_blank')
+            }
+          }}
+        >
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20dashboard-QP5fjOvSc91LRNqwIufnAEbwbWVutx.png"
             alt="Marketing agency analytics dashboard"
@@ -95,7 +111,14 @@ function CaseStudyCard() {
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="rounded-2xl overflow-hidden bg-white h-[200px]">
+        <div 
+          className="rounded-2xl overflow-hidden bg-white h-[200px] cursor-pointer md:cursor-default"
+          onClick={() => {
+            if (window.innerWidth < 768) {
+              window.open("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20multiple%20niches%20list-U2mtdlmR2Ikp9WcK8m4WclCQ4Oo151.png", '_blank')
+            }
+          }}
+        >
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20multiple%20niches%20list-U2mtdlmR2Ikp9WcK8m4WclCQ4Oo151.png"
             alt="Multiple niches campaign list"
@@ -104,7 +127,14 @@ function CaseStudyCard() {
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="rounded-2xl overflow-hidden bg-white h-[200px]">
+        <div 
+          className="rounded-2xl overflow-hidden bg-white h-[200px] cursor-pointer md:cursor-default"
+          onClick={() => {
+            if (window.innerWidth < 768) {
+              window.open("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20Targeted%20list-Ae6TN9b1k0qIaGSkLnebrvJGKGiPeI.png", '_blank')
+            }
+          }}
+        >
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20Targeted%20list-Ae6TN9b1k0qIaGSkLnebrvJGKGiPeI.png"
             alt="Targeted industries campaign list"

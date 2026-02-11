@@ -98,13 +98,13 @@ export function RoiCalculator() {
               <label className="block text-sm font-medium text-primary-foreground/80 mb-3">
                 How big is your target audience?
               </label>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="flex flex-col md:grid md:grid-cols-4 gap-3">
                 {audienceSizes.map((size, i) => (
                   <button
                     key={size.label}
                     type="button"
                     onClick={() => setAudienceIndex(i)}
-                    className={`rounded-2xl py-3 px-2 text-center transition-all ${
+                    className={`rounded-2xl py-3 px-2 md:px-2 text-center md:text-center text-left pl-5 md:pl-2 transition-all ${
                       audienceIndex === i
                         ? "bg-accent text-accent-foreground"
                         : "bg-primary-foreground/10 text-primary-foreground/70 hover:bg-primary-foreground/15"
@@ -158,10 +158,16 @@ export function RoiCalculator() {
                 </div>
                 <div className="rounded-2xl bg-primary-foreground/10 p-6">
                   <p className="text-sm text-primary-foreground/60 mb-2">Revenue</p>
-                  <p className="font-heading text-3xl font-bold text-accent">
-                    ${results.minRevenue.toLocaleString()}{results.minRevenue !== results.maxRevenue && `-$${results.maxRevenue.toLocaleString()}`}
-                    {results.dealRange.monthly && ' every month'}
-                  </p>
+                  <div className="flex flex-col md:flex-row md:items-baseline md:gap-1">
+                    <p className="font-heading text-3xl font-bold text-accent">
+                      ${results.minRevenue.toLocaleString()}{results.minRevenue !== results.maxRevenue && `-$${results.maxRevenue.toLocaleString()}`}
+                    </p>
+                    {results.dealRange.monthly && (
+                      <p className="font-heading text-xl md:text-3xl font-bold text-accent">
+                        every month
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
