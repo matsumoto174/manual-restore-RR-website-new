@@ -208,7 +208,7 @@ export function ProcessTimeline() {
                 </div>
                 {/* Founder card opposite card 01 */}
                 {i === 0 && (
-                  <div className="md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:pr-12 md:flex md:items-center md:gap-3 mb-6 md:mb-0">
+                  <div className="md:absolute md:right-0 md:top-0 md:pl-12 md:flex md:items-start md:gap-3 mb-6 md:mb-0">
                     <div className="flex items-center gap-3 md:flex-col md:items-end">
                       <div className="flex items-center gap-2 md:flex-col md:items-end md:gap-1">
                         <span className="text-sm font-medium text-primary whitespace-nowrap">
