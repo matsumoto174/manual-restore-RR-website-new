@@ -189,9 +189,9 @@ export function ProcessTimeline() {
       <svg className="absolute w-0 h-0">
         <defs>
           <filter id="chalk-effect">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
-            <feGaussianBlur stdDeviation="0.5" />
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur stdDeviation="0.2" />
           </filter>
         </defs>
       </svg>
