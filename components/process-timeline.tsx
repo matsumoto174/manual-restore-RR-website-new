@@ -6,19 +6,19 @@ import { ChevronDown, Check } from "lucide-react"
 const steps = [
   {
     number: "01",
-    title: "We meet to learn everything about you ❤️",
+    title: "We meet with you to learn everything about you",
     subtitle: "",
     dayLabel: "",
     description:
-      "We ask about your target audience, your competition, and how you do what you do.\nWe take notes and use that to craft a strong offer and write effective cold email copy.",
+      "We ask about your target audience, your competition, and how you do what you do, among 100 other things.\nWe take notes and use that to craft a strong offer and write effective cold email copy.",
   },
   {
     number: "02",
-    title: "We take care of all the tech stuff",
+    title: "We handle hours of technical grunt work",
     subtitle: "",
     dayLabel: "Day 1",
     description:
-      "Purchase new sending domains\nPurchase Google Workspace subscriptions\nCreate sending accounts\nConfigure DNS: SPF, DKIM, DMARC, forwarding, catch-all rules, etc.\nSet up the entire sending system\nConnect sending accounts, do warmup",
+      "Purchase new sending domains\nPurchase Google Workspace subscriptions\nCreate sending accounts\nConfigure DNS: SPF, DKIM, DMARC, forwarding, catch-all rules, etc.\nSet up the sending platform\nConnect and configure accounts, sending limits, warmup cadence and open/reply levels, active campaign and backup account grouping, etc.",
   },
   {
     number: "03",
@@ -26,15 +26,15 @@ const steps = [
     subtitle: "",
     dayLabel: "Day 2",
     description:
-      "Identify ICP\nForm a list of firmographic identifiers\nSearch databases\nScrape contact data\n\nData verification\nData cleaning\nContacts per company limit (max 2)\n\nRemove catchalls\nSeparate by MSP\nSeparate SEG prospects",
+      "Identify ICP\nForm a list of firmographic identifiers\nSearch databases\nScrape contact data\n\nEmail verification\nData cleaning\nContacts per company limit (max 2)\n\nRemove catchalls\nSeparate by MSP\nSeparate SEG prospects",
   },
   {
     number: "04",
     title: "We write effective cold email copy to convince prospects to buy from YOU",
-    subtitle: "(no AI here, talented humans write all copy by hand)",
+    subtitle: "no AI here, all copy is written by hand + brain",
     dayLabel: "Days 3-5",
     description:
-      "Forming a strong persuasive offer\nCold-email specific copywriting\nSubject and preview text\nWrite follow-up sequences\n\nLegal formatting\nSpintax\nHTML stripping\nA/Z variation",
+      "Forming a strong persuasive offer\nCold-email specific copywriting\nSubject and preview text\nFollow-up sequences\n\nLegal formatting\nSpintax\nHTML stripping\nA/Z variation",
   },
   {
     number: "05",
@@ -50,7 +50,7 @@ const steps = [
     subtitle: "",
     dayLabel: "📅",
     description:
-      "No-shows don't count.\nYou pay every Friday for meetings that took place that week",
+      "No-shows don't count.\nYou pay every Friday for meetings that took place that week.",
   },
   {
     number: "07",
