@@ -127,7 +127,7 @@ function TimelineCard({
               alt="Profile" 
               className="w-24 h-24 rounded-full object-cover shadow-lg shrink-0"
             />
-            <p className="font-heading text-lg font-semibold text-primary leading-tight">
+            <p className="font-heading text-lg font-semibold text-primary leading-tight" style={{ filter: 'url(#chalk-effect)' }}>
               Founder-led, end-to-end. You work directly with me.
             </p>
           </div>
@@ -185,6 +185,17 @@ export function ProcessTimeline() {
 
   return (
     <section className="bg-background py-16 md:py-24" id="process">
+      {/* SVG filter for chalk effect */}
+      <svg className="absolute w-0 h-0">
+        <defs>
+          <filter id="chalk-effect">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur stdDeviation="0.5" />
+          </filter>
+        </defs>
+      </svg>
+      
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary text-center mb-16">
           The Process
