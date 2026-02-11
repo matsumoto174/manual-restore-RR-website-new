@@ -111,7 +111,7 @@ function TimelineCard({
         </button>
       </div>
 
-      {/* Day Label on opposite side */}
+      {/* Day Label or Image on opposite side */}
       {step.dayLabel && (
         <div className={`hidden md:block flex-1 ${isLeft ? "md:pl-12" : "md:pr-12 text-right"}`}>
           <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-semibold text-sm">
@@ -119,7 +119,16 @@ function TimelineCard({
           </span>
         </div>
       )}
-      {!step.dayLabel && <div className="hidden md:block flex-1" />}
+      {step.number === "01" && !step.dayLabel && (
+        <div className={`hidden md:block flex-1 ${isLeft ? "md:pl-12" : "md:pr-12 text-right"}`}>
+          <img 
+            src="/images/clr-cropped.jpg" 
+            alt="Profile" 
+            className="inline-block w-24 h-24 rounded-full object-cover shadow-lg"
+          />
+        </div>
+      )}
+      {!step.dayLabel && step.number !== "01" && <div className="hidden md:block flex-1" />}
     </div>
   )
 }
