@@ -206,67 +206,14 @@ export function ProcessTimeline() {
                     <div className="w-4 h-4 rounded-full bg-border border-2 border-background" />
                   )}
                 </div>
-                {/* Founder card opposite card 01 */}
+                {/* Founder image opposite card 01 */}
                 {i === 0 && (
-                  <div className="md:absolute md:right-0 md:top-0 md:pl-12 md:flex md:items-start md:gap-3 mb-6 md:mb-0">
-                    <div className="flex items-center gap-3 md:flex-col md:items-end">
-                      <div className="flex items-center gap-2 md:flex-col md:items-end md:gap-1">
-                        <span className="text-sm font-medium text-primary whitespace-nowrap">
-                          Ilya, the Founder
-                        </span>
-                        <svg 
-                          className="w-8 h-8 md:w-10 md:h-10 text-accent shrink-0" 
-                          viewBox="0 0 40 40" 
-                          fill="none" 
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path 
-                            d="M5 8C8 10 12 14 15 18C18 14 22 12 25 10C23 14 20 19 18 23C22 24 28 24 32 23C28 26 23 29 18 30" 
-                            stroke="currentColor" 
-                            strokeWidth="2.5" 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round"
-                            style={{
-                              filter: 'url(#chalk-rough)',
-                              strokeDasharray: '1, 3',
-                            }}
-                          />
-                          <defs>
-                            <filter id="chalk-rough">
-                              <feTurbulence type="fractalNoise" baseFrequency="2" numOctaves="3" result="noise" />
-                              <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.5" />
-                            </filter>
-                          </defs>
-                        </svg>
-                      </div>
-                      <div className="relative aspect-square w-24 h-24 md:w-28 md:h-28 shrink-0">
-                        <img
-                          src="/ilya-founder.jpg"
-                          alt="Ilya, the Founder"
-                          className="w-full h-full object-cover rounded-[2rem]"
-                        />
-                      </div>
-                    </div>
-                    <span 
-                      className="hidden md:block text-xs font-semibold text-accent whitespace-nowrap writing-mode-vertical"
-                      style={{
-                        fontFamily: 'Comic Sans MS, Marker Felt, cursive',
-                        writingMode: 'vertical-rl',
-                        textOrientation: 'mixed',
-                        letterSpacing: '0.05em',
-                      }}
-                    >
-                      Founder-led, end-to-end
-                    </span>
-                    <span 
-                      className="md:hidden mt-2 block text-xs font-semibold text-accent text-center"
-                      style={{
-                        fontFamily: 'Comic Sans MS, Marker Felt, cursive',
-                        letterSpacing: '0.05em',
-                      }}
-                    >
-                      Founder-led, end-to-end
-                    </span>
+                  <div className={`hidden md:block flex-1 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12 text-right"}`}>
+                    <img
+                      src="/ilya-founder.jpg"
+                      alt="Founder"
+                      className="w-24 h-24 object-cover rounded-[2rem]"
+                    />
                   </div>
                 )}
               </div>
