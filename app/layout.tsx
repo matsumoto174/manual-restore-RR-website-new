@@ -1,11 +1,12 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Space_Grotesk, Caveat } from 'next/font/google'
 
 import './globals.css'
 
 const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const _spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
+const _caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat' })
 
 export const metadata: Metadata = {
   title: 'Pay-Per-Call Marketing Agency | Get 10 Sales Calls a Month',
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${_inter.variable} ${_spaceGrotesk.variable} font-sans antialiased`} suppressHydrationWarning>{children}</body>
+      <body className={`${_inter.variable} ${_spaceGrotesk.variable} ${_caveat.variable} font-sans antialiased`} suppressHydrationWarning>{children}</body>
     </html>
   )
 }

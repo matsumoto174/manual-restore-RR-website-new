@@ -1,5 +1,8 @@
-import { TrendingUp, Users, BarChart3, Target } from "lucide-react"
+"use client"
+
+import { TrendingUp, Users, BarChart3, Target, X } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
 const results = [
   {
@@ -36,10 +39,10 @@ const results = [
   },
 ]
 
-function ResultCard({ result }: { result: (typeof results)[0] }) {
+function ResultCard({ result, onImageClick }: { result: (typeof results)[0], onImageClick: (image: string) => void }) {
   const Icon = result.icon
   return (
-    <div className="rounded-[2rem] bg-primary p-8 flex flex-col gap-5">
+    <div className="rounded-[2rem] bg-primary p-4 md:p-8 flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center">
           <Icon className="w-6 h-6 text-accent" />
@@ -49,7 +52,10 @@ function ResultCard({ result }: { result: (typeof results)[0] }) {
         </span>
       </div>
       {result.image ? (
-        <div className="w-full h-88 rounded-2xl overflow-hidden bg-white">
+        <div 
+          className="w-full h-88 rounded-2xl overflow-hidden bg-white cursor-pointer"
+          onClick={() => onImageClick(result.image!)}
+        >
           <Image
             src={result.image}
             alt={result.title}
@@ -73,47 +79,54 @@ function ResultCard({ result }: { result: (typeof results)[0] }) {
   )
 }
 
-function CaseStudyCard() {
+function CaseStudyCard({ onImageClick }: { onImageClick: (image: string) => void }) {
+  const images = [
+    {
+      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20dashboard-QP5fjOvSc91LRNqwIufnAEbwbWVutx.png",
+      alt: "Marketing agency analytics dashboard"
+    },
+    {
+      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20multiple%20niches%20list-U2mtdlmR2Ikp9WcK8m4WclCQ4Oo151.png",
+      alt: "Multiple niches campaign list"
+    },
+    {
+      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20Targeted%20list-Ae6TN9b1k0qIaGSkLnebrvJGKGiPeI.png",
+      alt: "Targeted industries campaign list"
+    }
+  ]
+
   return (
-    <div className="rounded-[2rem] bg-primary p-8 flex flex-col gap-6">
+    <div className="rounded-[2rem] bg-primary p-4 md:p-8 flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h3 className="font-heading text-2xl font-semibold text-primary-foreground">
-          Marketing agency
-        </h3>
+        <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center md:hidden">
+          <BarChart3 className="w-6 h-6 text-accent" />
+        </div>
         <span className="font-heading text-2xl font-bold text-accent">
           Over 200 leads in 6 months
         </span>
       </div>
-      
+
       <div className="grid grid-cols-3 gap-1.5">
-        <div className="rounded-2xl overflow-hidden bg-white h-[200px]">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20dashboard-QP5fjOvSc91LRNqwIufnAEbwbWVutx.png"
-            alt="Marketing agency analytics dashboard"
-            width={800}
-            height={300}
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <div className="rounded-2xl overflow-hidden bg-white h-[200px]">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20multiple%20niches%20list-U2mtdlmR2Ikp9WcK8m4WclCQ4Oo151.png"
-            alt="Multiple niches campaign list"
-            width={800}
-            height={300}
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <div className="rounded-2xl overflow-hidden bg-white h-[200px]">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XO%20Targeted%20list-Ae6TN9b1k0qIaGSkLnebrvJGKGiPeI.png"
-            alt="Targeted industries campaign list"
-            width={800}
-            height={300}
-            className="w-full h-full object-contain"
-          />
-        </div>
+        {images.map((image) => (
+          <div 
+            key={image.src}
+            className="rounded-2xl overflow-hidden bg-white h-[200px] cursor-pointer"
+            onClick={() => onImageClick(image.src)}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={800}
+              height={300}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ))}
       </div>
+
+      <h3 className="font-heading text-xl font-semibold text-primary-foreground">
+        Marketing agency
+      </h3>
 
       <div>
         <p className="text-sm leading-relaxed text-primary-foreground/70">
@@ -125,8 +138,33 @@ function CaseStudyCard() {
 }
 
 export function ResultsSection() {
+  const [modalImage, setModalImage] = useState<string | null>(null)
+
   return (
     <section className="bg-background pt-16 md:pt-24 pb-8 md:pb-12">
+      {/* Image Modal */}
+      {modalImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          onClick={() => setModalImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-accent transition-colors"
+            onClick={() => setModalImage(null)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <div className="max-w-6xl max-h-[90vh] w-full h-full relative">
+            <Image
+              src={modalImage}
+              alt="Expanded view"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      )}
+      
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary text-center mb-16">
           Our results speak for themselves
@@ -134,10 +172,10 @@ export function ResultsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {results.map((result) => (
-            <ResultCard key={result.title} result={result} />
+            <ResultCard key={result.title} result={result} onImageClick={setModalImage} />
           ))}
           <div className="md:col-span-2">
-            <CaseStudyCard />
+            <CaseStudyCard onImageClick={setModalImage} />
           </div>
         </div>
 

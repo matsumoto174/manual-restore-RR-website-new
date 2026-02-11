@@ -65,6 +65,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         heading: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+        caveat: ['var(--font-caveat)', 'cursive'],
       },
       borderRadius: {
         lg: 'var(--radius)',

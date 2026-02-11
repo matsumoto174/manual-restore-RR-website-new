@@ -6,19 +6,19 @@ import { ChevronDown, Check } from "lucide-react"
 const steps = [
   {
     number: "01",
-    title: "We meet to learn everything about you ❤️",
+    title: "We meet with you to learn everything about you",
     subtitle: "",
     dayLabel: "",
     description:
-      "We ask about your target audience, your competition, and how you do what you do.\nWe take notes and use that to craft a strong offer and write effective cold email copy.",
+      "We ask about your target audience, your competition, and how you do what you do, among 100 other things.\nWe take notes and use that to craft a strong offer and write effective cold email copy.",
   },
   {
     number: "02",
-    title: "We take care of all the tech stuff",
+    title: "We handle hours of technical grunt work",
     subtitle: "",
     dayLabel: "Day 1",
     description:
-      "Purchase new sending domains\nPurchase Google Workspace subscriptions\nCreate sending accounts\nConfigure DNS: SPF, DKIM, DMARC, forwarding, catch-all rules, etc.\nSet up the entire sending system\nConnect sending accounts, do warmup",
+      "Purchase new sending domains\nPurchase Google Workspace subscriptions\nCreate sending accounts\nConfigure DNS: SPF, DKIM, DMARC, forwarding, catch-all rules, etc.\nSet up the sending platform\nConnect and configure accounts, sending limits, warmup cadence and open/reply levels, active campaign and backup account grouping, etc.",
   },
   {
     number: "03",
@@ -26,15 +26,15 @@ const steps = [
     subtitle: "",
     dayLabel: "Day 2",
     description:
-      "Identify ICP\nForm a list of firmographic identifiers\nSearch databases\nScrape contact data\n\nData verification\nData cleaning\nContacts per company limit (max 2)\n\nRemove catchalls\nSeparate by MSP\nSeparate SEG prospects",
+      "Identify ICP\nForm a list of firmographic identifiers\nSearch databases\nScrape contact data\n\nEmail verification\nData cleaning\nContacts per company limit (max 2)\n\nRemove catchalls\nSeparate by MSP\nSeparate SEG prospects",
   },
   {
     number: "04",
     title: "We write effective cold email copy to convince prospects to buy from YOU",
-    subtitle: "(no AI here, talented humans write all copy by hand)",
+    subtitle: "no AI here, all copy is written by hand + brain",
     dayLabel: "Days 3-5",
     description:
-      "Forming a strong persuasive offer\nCold-email specific copywriting\nSubject and preview text\nWrite follow-up sequences\n\nLegal formatting\nSpintax\nHTML stripping\nA/Z variation",
+      "Forming a strong persuasive offer\nCold-email specific copywriting\nSubject and preview text\nFollow-up sequences\n\nLegal formatting\nSpintax\nHTML stripping\nA/Z variation",
   },
   {
     number: "05",
@@ -50,7 +50,7 @@ const steps = [
     subtitle: "",
     dayLabel: "📅",
     description:
-      "No-shows don't count.\nYou pay every Friday for meetings that took place that week",
+      "No-shows don't count.\nYou pay every Friday for meetings that took place that week.",
   },
   {
     number: "07",
@@ -74,14 +74,39 @@ function TimelineCard({
 
   return (
     <div
-      className={`relative flex items-start gap-6 md:gap-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"} md:items-center`}
+      className={`relative flex flex-col items-start gap-6 md:gap-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"} md:items-center`}
     >
+      {/* Mobile Image + Text for step 01 */}
+      {step.number === "01" && (
+        <div className="md:hidden w-full mb-4">
+          <div className="flex items-center gap-4">
+            <img 
+              src="/images/clr-cropped.jpg" 
+              alt="Profile" 
+              className="w-20 h-20 rounded-full object-cover shadow-lg shrink-0"
+            />
+            <p className="font-caveat text-xl font-semibold text-primary leading-tight" style={{ filter: 'url(#chalk-effect)', transform: 'rotate(-3deg)' }}>
+              Founder-led, end-to-end. You work directly with me.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Day Label for other steps */}
+      {step.dayLabel && (
+        <div className="md:hidden w-full text-center mt-8 mb-2">
+          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-semibold text-sm">
+            {step.dayLabel}
+          </span>
+        </div>
+      )}
+      
       {/* Card */}
       <div className={`flex-1 ${isLeft ? "md:pr-12" : "md:pl-12"}`}>
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="w-full rounded-[2rem] bg-secondary p-6 text-left transition-all hover:shadow-md"
+          className="w-full rounded-[2rem] bg-secondary p-4 md:p-6 text-left transition-all hover:shadow-md"
         >
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -111,7 +136,7 @@ function TimelineCard({
         </button>
       </div>
 
-      {/* Day Label on opposite side */}
+      {/* Day Label or Image on opposite side */}
       {step.dayLabel && (
         <div className={`hidden md:block flex-1 ${isLeft ? "md:pl-12" : "md:pr-12 text-right"}`}>
           <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-semibold text-sm">
@@ -119,7 +144,21 @@ function TimelineCard({
           </span>
         </div>
       )}
-      {!step.dayLabel && <div className="hidden md:block flex-1" />}
+      {step.number === "01" && !step.dayLabel && (
+        <div className={`hidden md:block flex-1 ${isLeft ? "md:pl-12" : "md:pr-12"}`}>
+          <div className="flex items-center gap-4">
+            <img 
+              src="/images/clr-cropped.jpg" 
+              alt="Profile" 
+              className="w-24 h-24 rounded-full object-cover shadow-lg shrink-0"
+            />
+            <p className="font-caveat text-2xl font-semibold text-primary leading-tight" style={{ filter: 'url(#chalk-effect)', transform: 'rotate(-3deg)' }}>
+              Founder-led, end-to-end. You work directly with me.
+            </p>
+          </div>
+        </div>
+      )}
+      {!step.dayLabel && step.number !== "01" && <div className="hidden md:block flex-1" />}
     </div>
   )
 }
@@ -171,6 +210,17 @@ export function ProcessTimeline() {
 
   return (
     <section className="bg-background py-16 md:py-24" id="process">
+      {/* SVG filter for chalk effect */}
+      <svg className="absolute w-0 h-0">
+        <defs>
+          <filter id="chalk-effect">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.25" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur stdDeviation="0.25" />
+          </filter>
+        </defs>
+      </svg>
+      
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary text-center mb-16">
           The Process
